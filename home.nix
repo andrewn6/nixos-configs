@@ -3,7 +3,6 @@
   home.username = "andrew";
   home.homeDirectory = "/home/andrew";
   imports = [
-    ./modules/git
   ]; 
   
   # deprecated flakes.enable = true;
@@ -61,6 +60,12 @@
         };
       };
     };
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Andrew N";
+    userEmail = "andrewnijmeh1@gmail.com";
   };
   
   programs.starship = {

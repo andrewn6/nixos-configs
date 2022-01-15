@@ -9,7 +9,6 @@ in
   users.users.andrew = {
       home = "/Users/andrew";
       description = "Andrew Nijmeh";
-      shell = pkgs.zsh;
     };
 
   nix.nixPath =
@@ -18,12 +17,7 @@ in
     ];
 
   environment.systemPackages = with pkgs; [
-    tree
     wget
-    htop
-    neofetch
-    ctop
-    git
     (pkgs.writeShellScriptBin "nixFlakes" ''
       exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
     '')
@@ -33,14 +27,7 @@ in
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
-  programs.zsh.enable = true;
-  
-  programs.git = {
-    enable = true;
-    userEmail = "git@nijmeh.xyz";
-    userName = "Andrew";
-  };
-
+ 
   system = {
     stateVersion = 4;
 
